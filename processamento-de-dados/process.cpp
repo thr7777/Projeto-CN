@@ -125,7 +125,6 @@ double ard(double x, int n){
                 //trocando o ultimo com ultimo numero
                 numeroParaString[ultimo] = ultimoNumero + '0';
             }
-
     }
 
     return stod(numeroParaString);
