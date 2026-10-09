@@ -62,7 +62,7 @@ double tru(double x, int n){
 }
 
 //=========arredondammento===================
-double ard(double x, int n){
+/*double ard(double x, int n){
 
     //posicao do primeiro digito significativo
     int pos = posicao(x);
@@ -129,17 +129,67 @@ double ard(double x, int n){
 
     return stod(numeroParaString);
 }
+*/
+double ard(double x, int n){
+    double notacaoMantissa =  mantissa(x);
+    std::string numeroParaString = to_string(notacaoMantissa);
+
+    //expoente
+    int expoente = floor(log10(x)) + 1;
+    //posicao do primeiro digito significativo
+    int pos = posicao(notacaoMantissa);
+    //variavel de controle para casos de arredondamento
+    int verificacaoErase =  numeroParaString[pos+n] - '0';
+    
+    //primeiro caso (1-4) ===================================
+    if(verificacaoErase >= 1 && verificacaoErase <= 4){
+        //apaga o restante
+        numeroParaString.erase(pos+n);
+        //tira da mantissa e retorna
+        return stod(numeroParaString) * (pow(10, expoente));
+    }//=======================================================
+    else if(verificacaoErase >= 5 && verificacaoErase <= 9){
+        
+        numeroParaString.erase(pos+n);
+        //pega o ultimo numero de dentro da string
+        int ultimoNumero = numeroParaString[numeroParaString.size() -1] - '0';
+        
+        //soma com um ( arredonda ) e coloca novamente dentro da string
+
+        //primeiro caso - o ultimo nao ser 9
+        if(ultimoNumero != 9){
+            ultimoNumero+=1;
+            numeroParaString[numeroParaString.size()-1] = ultimoNumero + '0';
+        }
+
+        //segundo caso - o ultimo é igual a nove
+        else if(ultimoNumero == 9){
+            
+        }
 
 
+
+
+
+    }
+
+
+
+}
 
 int main(){
 
-    double y = ard(9.99999, 4);
+    double y = ard(9.9956, 4);
     double x = tru(3.959585, 4);
     int pos = posicao(3.89898);
+
+    double w = mantissa(9.99999);
     
+
+
     cout << y;
-    cout << x;
+    
+    
    
 
     return 0;
