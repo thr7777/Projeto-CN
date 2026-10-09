@@ -125,6 +125,7 @@ double ard(double x, int n){
                 //trocando o ultimo com ultimo numero
                 numeroParaString[ultimo] = ultimoNumero + '0';
             }
+
     }
 
     return stod(numeroParaString);
@@ -137,7 +138,9 @@ int main(){
     double y = ard(9.99999, 4);
     double x = tru(3.959585, 4);
     int pos = posicao(3.89898);
+    
     cout << y;
+    cout << x;
    
 
     return 0;
