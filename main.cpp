@@ -1,5 +1,6 @@
 #include"operacoes/operacoes.hpp"
 #include"processamento-de-dados/process.hpp"
+#include"tratamento-de-caracteres/tratamento.hpp"
 
 #include<iostream>
 #include<string>
@@ -14,17 +15,5 @@ int main(){
     double y;
     int n;
 
-    cout << "x: \n" ;
-    cin >> x;
 
-    cout << " y \n";
-    cin >> y;
-
-    cout << "n \n";
-    cin >> n;
-    
-    double truc = tru(x, n);
-    cout << truc;
-    
-    return 0;
 }
