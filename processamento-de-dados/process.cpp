@@ -18,7 +18,6 @@ using namespace std;
 
 //=======================================================
 double mantissa(double x){
-
     //descobrindo grandeza
     int expoente = floor(log10(x)) + 1;
     return ( x / pow(10, expoente)); 
@@ -26,8 +25,7 @@ double mantissa(double x){
 //=======================================================
 
 //descobrindo digito significativo
-int posicao(double x){
-
+/*int posicao(double x){
     //transformacao de numero para string
     string numeroParaString = to_string(x);
     int tam = numeroParaString.size();
@@ -42,15 +40,11 @@ int posicao(double x){
     }
     //retorno da posicao
     return pos;
-}
+}*/
 
 
-
-
-
-
-//===========truncamento====================
-double tru(double x, int n){
+//===========truncamento==================== //
+/*double tru(double x, int n){
 
     //posicao
     int pos = posicao(x);
@@ -59,8 +53,19 @@ double tru(double x, int n){
     numeroParaString.erase(pos + n +1);
     //converter para numero
     return stod(numeroParaString);
-}
+}*/
+double tru(double x, int n){
 
+    if(x == 0.0)
+        return 0.0;
+
+    //pega a escala do numero
+    double escala = pow(10.0, n-1-floor(log10(abs(x))));
+    //aplica o truncamento
+    double truncamento = trunc(x * escala);
+    double numeroArredondado = truncamento / escala;
+    return numeroArredondado;
+}
 //=========arredondammento===================
 /*double ard(double x, int n){
 
@@ -130,7 +135,7 @@ double tru(double x, int n){
     return stod(numeroParaString);
 }
 */
-double ard(double x, int n){
+/*double ard(double x, int n){
     double notacaoMantissa =  mantissa(x);
     std::string numeroParaString = to_string(notacaoMantissa);
 
@@ -160,37 +165,42 @@ double ard(double x, int n){
         if(ultimoNumero != 9){
             ultimoNumero+=1;
             numeroParaString[numeroParaString.size()-1] = ultimoNumero + '0';
+            return stod(numeroParaString);
         }
 
         //segundo caso - o ultimo é igual a nove
         else if(ultimoNumero == 9){
-            
+            int aux = 0;
+            for(int i = numeroParaString.size() - 1; i>=0; i--){
+                if(numeroParaString[i] == '.'){
+                    numeroParaString.insert(2, 1, '1');
+                    break;
+                }
+                //procura o primeiro numero diferente de 9 para somar mais um
+                //caso nao ache ele vai zerando todos
+                if(numeroParaString[i] == '9'){
+                    numeroParaString[i] = '0';
+                }else if(numeroParaString[i] != 9){
+                    int aux = numeroParaString[i] - '0';
+                    aux+=1;
+                    numeroParaString[i] = aux + '0';
+                }
+            }
+            //retorno
+            return stod(numeroParaString);
         }
-
-
-
-
-
     }
-
-
-
 }
+*/
+double ard(double x, int n){
+    //caso seja enviado 0.0, o programa retorna o proprio 0.0
+    if(x == 0.0)
+        return 0.0;
 
-int main(){
-
-    double y = ard(9.9956, 4);
-    double x = tru(3.959585, 4);
-    int pos = posicao(3.89898);
-
-    double w = mantissa(9.99999);
-    
-
-
-    cout << y;
-    
-    
-   
-
-    return 0;
+    //pegar em qual escala está o numero
+    double escala = pow(10.0, n-1 - floor(log10(abs(x))));
+    double numeroArredondado = x * escala;
+    double arredendamento = round(numeroArredondado);
+    numeroArredondado = arredendamento / escala;
+    return numeroArredondado;
 }
