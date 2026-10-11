@@ -6,8 +6,6 @@
 //Univasf-ssf
 //projeto feito para a disciplina de Calculo Numerico administrada pelo prof. Jorge Cavalcante
 
-
-
 #include"operacoes/operacoes.hpp"
 #include"processamento-de-dados/process.hpp"
 #include"tratamento-de-caracteres/tratamento.hpp"

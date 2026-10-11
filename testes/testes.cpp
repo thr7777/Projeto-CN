@@ -137,7 +137,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
         double erroRelativo = erroRel(erroAbsoluto, valorAproximado);
 
 
-        printf("==================TESTE SUBTRATIVO===============\n");
+        printf("==================TESTES===============\n");
         //apresentacao dos testes
         printf("Valor exato: %g x 10^%d", mantissa(valor), expoente(valor));
         p2();
