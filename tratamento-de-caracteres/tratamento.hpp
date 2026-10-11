@@ -3,6 +3,7 @@
 using namespace std;
 #include<string>
 
+//declaracao de variavel
 bool tratamentoDado(std::string entrada, double &x);
 
 #endif

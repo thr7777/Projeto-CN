@@ -26,7 +26,8 @@ void p(){
 
 int main(){
 
-    testeDoProfessor(2, 2, "0.76545", "0.76541", 1, 4);
+    //testes pré definidos
+    testeManual(2, 2, "0.76545", "0.76541", 1, 4);
     somaDeDois(4.65464, 4.94544, 3);
     erroDeSomas(0.56786, 10, 4);
 
@@ -34,11 +35,11 @@ int main(){
     string entradaDois;
 
     //variaveis
-    double x_arredondado, y_arredondado;
+    //double x_arredondado, y_arredondado;
     double x, y;
     double valor;
     double valorAproximado = 0;
-    //digito
+    //digitos significativos;
     int n;
 
     int escolha, escolha2;
@@ -65,6 +66,8 @@ int main(){
         cout << "ajuste apos a operacao - [1] \n";
         cout << "ajuste antes da operacao - [2] \n";
         cin >> escolha2;
+        if(escolha2 > 2 || escolha2 < 1)
+            continue;
 
         cout << "digite o primeiro numero \n";
         cin >> entradaUm;
@@ -75,6 +78,9 @@ int main(){
         cout << "arredondamento - [1]\n";
         cout << "truncamento - [2]\n";
         cin >> escolha_ajuste;
+
+        if(escolha_ajuste > 2 || escolha_ajuste < 1)
+            continue;
 
         cout << "digitos significativos: \n";
         cin >> n;
@@ -165,33 +171,23 @@ int main(){
         //mostrando erros
         double erroAbsoluto = erroAbs(valor, valorAproximado);
         double erroRelativo = erroRel(erroAbsoluto, valorAproximado);
-
-
-
-        //interface bonitinha hehehehhehehehehehe
-
-        double mantisa = mantissa(56.65445);
-        int exp = expoente(56.65445);
         
-        printf("======================TESTE=======================\n");
-        
-        printf("valor em notacao: %f x 10^ %d \n", mantisa, exp);
 
-        cout << "Erro absoluto: \n";
 
         
-        printf("%f x 10^%d", mantissa(erroAbsoluto), expoente(erroAbsoluto));
-        p();
-        cout << "Erro relativo: \n";
-        printf("%f x 10^%d", mantissa(erroRelativo), expoente(erroRelativo));
-        p();
+
+        printf("======================RESULTADO====================\n");
         cout << "Valor exato: \n";
-        printf("%f x 10^%d", mantissa(valor), expoente(valor));
+        printf("%g x 10^%d", mantissa(valor), expoente(valor));
         p();
         cout << "Valor aproximado: \n";
-        printf("%f x 10^%d", mantissa(valorAproximado), expoente(valorAproximado));
+        printf("%g x 10^%d", mantissa(valorAproximado), expoente(valorAproximado));
         p();
-        printf("=================================================\n");
+        printf("Erro absoluto:\n%g x 10^%d", mantissa(erroAbsoluto), expoente(erroAbsoluto));
+        p();
+        printf("Erro relativo:\n%g x 10^%d ou %g%%", mantissa(erroRelativo), expoente(erroRelativo), erroRelativo*100);
+        p();
+        printf("==================================================\n");
 
     }while(true);
 }

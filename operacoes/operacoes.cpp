@@ -14,7 +14,7 @@ double sub(double x, double y){
     return (x - y);
 }
 
-//precisam serem mexidas -===-=-=-=
+//essa funcao retorna de forma recursiva pegando os erros com o truncamento
 double mult(double x, double y, int n){
     if (y != (int)y) {
         return x * y;
