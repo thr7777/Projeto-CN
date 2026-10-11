@@ -136,11 +136,11 @@ int main(){
     double x_arredondado, y_arredondado;
     double x, y;
     double valor;
-    double valorAproximado;
+    double valorAproximado = 0;
     //digito
     int n;
 
-    int escolha;
+    int escolha, escolha2;
     int escolha_ajuste;
     do{
 
@@ -151,26 +151,34 @@ int main(){
         cout << "[4] - divisao \n";
         cout << "[0] - sair \n";
         cin >> escolha;
+        if(escolha == 0)
+            break;
+
+        cout << "ajuste apos a operacao - [1] \n";
+        cout << "ajuste antes da operacao - [2] \n";
+        cin >> escolha2;
+
+        cout << "digite o primeiro numero \n";
+        cin >> entradaUm;
+        cout << "digite o segundo numero \n";
+        cin >> entradaDois;
+
+        cout << "qual ajuste: \n";
+        cout << "arredondamento - [1]\n";
+        cout << "truncamento - [2]\n";
+        cin >> escolha_ajuste;
+
+        cout << "digitos significativos: \n";
+        cin >> n;
 
         if(escolha == 1 || escolha == 2){
 
-            cin >> entradaUm;
-            cin >> entradaDois;
+
             if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
                 cout << "valor invalido \n";
                 continue;
             }
-
-            printf("%f \n", sub(x, y));
-            cout << "qual ajuste: \n";
-            cout << "arredondamento - [1]\n";
-            cout << "truncamento - [2]\n";
-            cin >> escolha_ajuste;
-
-            cout << "digitos significativos: \n";
-            cin >> n;
-
-            switch (escolha_ajuste){
+            /*switch (escolha_ajuste){
                 case 1:
                     x_arredondado = ard(x, n);
                     y_arredondado = ard(y, n);
@@ -183,18 +191,32 @@ int main(){
             
                 default:
                 break;
-            }
-            switch (escolha){
+            }*/
 
+            
+            switch (escolha){
                 case 1:
-                    valor = soma(x_arredondado, y_arredondado);
-                    valorAproximado = aproximar(valor, escolha_ajuste, n);
+
+                    
+                    if(escolha2 == 1){
+                        valor = soma(x, y);
+                        valorAproximado = aproximar(valor, escolha_ajuste, n);
+                    }
+                    else if(escolha2 == 2){
+                        ajustar(escolha_ajuste, x, y, n);
+                        valor = soma(x, y);
+                    }
                 break;
 
                 case 2:
-                    valor = sub(x_arredondado, y_arredondado);
-                    valorAproximado = aproximar(valor, escolha_ajuste, n);
-
+                        if(escolha2 == 1){
+                        valor = sub(x, y);
+                        valorAproximado = aproximar(valor, escolha_ajuste, n);
+                        }
+                        else if(escolha2 == 2){
+                            ajustar(escolha_ajuste, x, y, n);
+                            valor = sub(x, y);
+                        }
                 break;
 
                 default:
@@ -203,13 +225,51 @@ int main(){
 
         }
 
-        if(escolha == 0)
-            break;
+        else if(escolha == 3 || escolha == 4){
+
+            
+            if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
+                cout << "valor invalido \n";
+                continue;
+            }
+
+
+            switch (escolha)
+            {
+                case 3:
+                    if(escolha2 == 1){
+                        valor = multNormal(x, y);
+                        valorAproximado = aproximar(valor, escolha_ajuste, n);
+                    }
+                    else if(escolha2 == 2){
+                        ajustar(escolha_ajuste, x, y, n);
+                        valor = multNormal(x, y);
+                     }
+                break;
+
+                case 4:
+                     if(escolha2 == 1){
+                        valor = div(x, y);
+                        valorAproximado = aproximar(valor, escolha_ajuste, n);
+                    }
+                    else if(escolha2 == 2){
+                        ajustar(escolha_ajuste, x, y, n);
+                        valor = div(x, y);
+                     }
+                break;
+            
+            default:
+                break;
+            }
+            //verifica o tipo de ajuste, antes ou depois
+            
+        }
+
         
         cout << valor;
         p();
         cout << valorAproximado;
+        p();
 
     }while(true);
-
 }

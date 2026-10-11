@@ -211,5 +211,26 @@ double aproximar(double x, int escolha_ajuste, int n){
     }
     else if(escolha_ajuste == 2){
         return tru(x, n);
-    }    
+    }
+}
+
+void ajustar(int escolha_ajuste, double &x, double &y, int n){
+    
+    switch (escolha_ajuste){
+                case 1:
+                    x = ard(x, n);
+                    y = ard(y, n);
+                break;
+
+                case 2:
+                    x = tru(x, n);
+                    y = tru(y, n);
+                break;
+            
+                default:
+                break;
+            }
+
+            
+
 }

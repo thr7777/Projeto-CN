@@ -13,6 +13,7 @@ double tru(double v, int n);
 double mantissa(double x);
 
 double aproximar(double x, int escolha_ajuste, int n);
+void ajustar(int escolha_ajuste, double &x, double &y, int n);
 //seletor de operacao
 
 //operacoes principais
