@@ -29,7 +29,7 @@ int main(){
     testeDoProfessor(2, 2, "0.76545", "0.76541", 1, 4);
     somaDeDois(4.65464, 4.94544, 3);
     erroDeSomas(0.56786, 10, 4);
-    
+
     string entradaUm;
     string entradaDois;
 
@@ -58,7 +58,7 @@ int main(){
         cin >> escolha;
         if(escolha == 0)
             break;
-        if(escolha > 4 || escolha < 2){
+        if(escolha > 4 || escolha < 1){
             continue;
         }
 
