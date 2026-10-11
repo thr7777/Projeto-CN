@@ -11,6 +11,8 @@ std::string notacao(double x);
 double ard(double v, int n);
 double tru(double v, int n);
 double mantissa(double x);
+
+double aproximar(double x, int escolha_ajuste, int n);
 //seletor de operacao
 
 //operacoes principais

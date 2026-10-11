@@ -9,7 +9,8 @@
 
 using namespace std;
 
-int main(){
+/*int main(){
+
 
     double x, y;
     int escolha;
@@ -115,6 +116,99 @@ int main(){
         }
 
         printf("valor: %f, ajuste: %f \n", valor, ajuste);
+
+    }while(true);
+
+}*/
+
+void p(){
+    printf("\n");
+}
+#include<cmath>
+
+int main(){
+
+
+    string entradaUm;
+    string entradaDois;
+
+    //variaveis
+    double x_arredondado, y_arredondado;
+    double x, y;
+    double valor;
+    double valorAproximado;
+    //digito
+    int n;
+
+    int escolha;
+    int escolha_ajuste;
+    do{
+
+        cout << "qual operacao: \n";
+        cout << "[1] - soma \n";
+        cout << "[2] - subtracao \n";
+        cout << "[3] - multiplicacao \n";
+        cout << "[4] - divisao \n";
+        cout << "[0] - sair \n";
+        cin >> escolha;
+
+        if(escolha == 1 || escolha == 2){
+
+            cin >> entradaUm;
+            cin >> entradaDois;
+            if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
+                cout << "valor invalido \n";
+                continue;
+            }
+
+            printf("%f \n", sub(x, y));
+            cout << "qual ajuste: \n";
+            cout << "arredondamento - [1]\n";
+            cout << "truncamento - [2]\n";
+            cin >> escolha_ajuste;
+
+            cout << "digitos significativos: \n";
+            cin >> n;
+
+            switch (escolha_ajuste){
+                case 1:
+                    x_arredondado = ard(x, n);
+                    y_arredondado = ard(y, n);
+                break;
+
+                case 2:
+                    x_arredondado = tru(x, n);
+                    y_arredondado = tru(y, n);
+                break;
+            
+                default:
+                break;
+            }
+            switch (escolha){
+
+                case 1:
+                    valor = soma(x_arredondado, y_arredondado);
+                    valorAproximado = aproximar(valor, escolha_ajuste, n);
+                break;
+
+                case 2:
+                    valor = sub(x_arredondado, y_arredondado);
+                    valorAproximado = aproximar(valor, escolha_ajuste, n);
+
+                break;
+
+                default:
+                break;
+            }
+
+        }
+
+        if(escolha == 0)
+            break;
+        
+        cout << valor;
+        p();
+        cout << valorAproximado;
 
     }while(true);
 

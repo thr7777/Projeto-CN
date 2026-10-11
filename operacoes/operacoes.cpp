@@ -11,6 +11,7 @@ double sub(double x, double y){
     return (x - y);
 }
 
+//precisam serem mexidas -===-=-=-=
 double mult(double x, double y){
     return (x * y);
 }

@@ -204,3 +204,12 @@ double ard(double x, int n){
     numeroArredondado = arredendamento / escala;
     return numeroArredondado;
 }
+
+double aproximar(double x, int escolha_ajuste, int n){
+    if(escolha_ajuste == 1){
+        return ard(x, n);
+    }
+    else if(escolha_ajuste == 2){
+        return tru(x, n);
+    }    
+}
