@@ -204,3 +204,21 @@ double ard(double x, int n){
     numeroArredondado = arredendamento / escala;
     return numeroArredondado;
 }
+
+double erroAbs(double valEx, double valApr){
+	//descobrindo o erro absoluto com função que transforma em modulo
+	return fabs(valEx - valApr);;
+}
+
+double erroRel(double valEx, double valApr){
+	//divisão por zero
+	if(valApr == 0){
+		printf("\nErro! Operacao impossivel\n");
+	}
+	//Calcula o erro relativo
+	return erroAbs(valEx, valApr)/fabs(valApr);
+}
+
+int main(){
+	return 0;
+}
