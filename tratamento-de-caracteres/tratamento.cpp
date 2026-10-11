@@ -20,7 +20,7 @@ bool tratamentoDado(string entrada, double &x){
     istringstream fluxo(entrada);
     double numero;
     char extra;
-
+    
     //se sobrar caracter, significa que tinha outra coisa além de numero
     if( (fluxo >> numero) && !(fluxo >> extra)){
         x = numero;

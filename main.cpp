@@ -1,6 +1,17 @@
+// Autores
+// Hercules Henrique dos Santos Pereira
+// Emily Eloisa dos Santos Leite
+// Milena França
+
+//Univasf-ssf
+//projeto feito para a disciplina de Calculo Numerico administrada pelo prof. Jorge Cavalcante
+
+
+
 #include"operacoes/operacoes.hpp"
 #include"processamento-de-dados/process.hpp"
 #include"tratamento-de-caracteres/tratamento.hpp"
+#include"testes/testes.hpp"
 
 #include<iostream>
 #include<string>
@@ -8,119 +19,6 @@
 #include<iomanip>
 
 using namespace std;
-
-/*int main(){
-
-
-    double x, y;
-    int escolha;
-    int escolha_ajuste;
-    double valor;
-    double ajuste;
-    int digitos;
-    string entradaUm;
-    string entradaDois;
-    do{
-
-        cout << "qual operacao: \n";
-        cout << "[1] - soma \n";
-        cout << "[2] - subtracao \n";
-        cout << "[3] - multiplicacao \n";
-        cout << "[4] - divisao \n";
-        cout << "[0] - sair \n";
-
-        cin >> escolha;
-
-        if(escolha == 0)
-        break;
-
-        switch (escolha)
-        {
-            case 1:
-                cout << "primeiro numero: \n";
-                cin >> entradaUm;
-                cout << "segundo numero: \n";
-                cin >> entradaDois;
-                if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
-                    cout << "numero invalido \n";
-                    continue;
-                }
-
-                valor = soma(x, y);
-            break;
-        
-            case 2:
-                cout << "primeiro numero: \n";
-                cin >> entradaUm;
-                cout << "primeiro numero: \n";
-                cin >> entradaDois;
-                if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
-                    cout << "numero invalido \n";
-                    continue;
-                }
-
-                valor = sub(x, y);
-             
-            break;
-            case 3:
-                cout << "primeiro numero: \n";
-                cin >> entradaUm;
-                cout << "primeiro numero: \n";
-                cin >> entradaDois;
-                if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
-                    cout << "numero invalido \n";
-                    continue;
-                }
-
-                valor = mult(x, y);
-              
-            break;
-            case 4:
-                cout << "primeiro numero: \n";
-                cin >> entradaUm;
-                cout << "primeiro numero: \n";
-                cin >> entradaDois;
-                if(!tratamentoDado(entradaUm, x) || !tratamentoDado(entradaDois, y)){
-                    cout << "numero invalido \n";
-                    continue;
-                }
-
-                valor = div(x, y);
-              
-            break;
-        default:
-            break;
-        }
-
-        cout << "Ajuste: \n";
-        cout << "[1] - truncamento \n";
-        cout << "[2] - arredondamento \n";
-        cin >> escolha_ajuste;
-
-        cout << "Digitos significativos: \n";
-        cin >> digitos;
-
-        //mostrando o ajuste escolhido
-
-        switch (escolha_ajuste)
-        {
-            case 1:
-                ajuste = tru(valor, digitos);
-            break;
-
-            case 2:
-                ajuste = ard(valor, digitos);
-            break;
-        default:
-            break;
-        }
-
-        printf("valor: %f, ajuste: %f \n", valor, ajuste);
-
-    }while(true);
-
-}*/
-
 void p(){
     printf("\n");
 }
@@ -128,7 +26,10 @@ void p(){
 
 int main(){
 
-
+    testeDoProfessor(2, 2, "0.76545", "0.76541", 1, 4);
+    somaDeDois(4.65464, 4.94544, 3);
+    erroDeSomas(0.56786, 10, 4);
+    
     string entradaUm;
     string entradaDois;
 
@@ -142,6 +43,10 @@ int main(){
 
     int escolha, escolha2;
     int escolha_ajuste;
+
+    
+
+
     do{
 
         cout << "qual operacao: \n";
@@ -153,6 +58,9 @@ int main(){
         cin >> escolha;
         if(escolha == 0)
             break;
+        if(escolha > 4 || escolha < 2){
+            continue;
+        }
 
         cout << "ajuste apos a operacao - [1] \n";
         cout << "ajuste antes da operacao - [2] \n";
@@ -178,22 +86,7 @@ int main(){
                 cout << "valor invalido \n";
                 continue;
             }
-            /*switch (escolha_ajuste){
-                case 1:
-                    x_arredondado = ard(x, n);
-                    y_arredondado = ard(y, n);
-                break;
 
-                case 2:
-                    x_arredondado = tru(x, n);
-                    y_arredondado = tru(y, n);
-                break;
-            
-                default:
-                break;
-            }*/
-
-            
             switch (escolha){
                 case 1:
 
@@ -203,8 +96,9 @@ int main(){
                         valorAproximado = aproximar(valor, escolha_ajuste, n);
                     }
                     else if(escolha2 == 2){
-                        ajustar(escolha_ajuste, x, y, n);
                         valor = soma(x, y);
+                        ajustar(escolha_ajuste, x, y, n);
+                        valorAproximado = soma(x, y);
                     }
                 break;
 
@@ -214,8 +108,9 @@ int main(){
                         valorAproximado = aproximar(valor, escolha_ajuste, n);
                         }
                         else if(escolha2 == 2){
-                            ajustar(escolha_ajuste, x, y, n);
                             valor = sub(x, y);
+                            ajustar(escolha_ajuste, x, y, n);
+                            valorAproximado = sub(x, y);
                         }
                 break;
 
@@ -232,8 +127,6 @@ int main(){
                 cout << "valor invalido \n";
                 continue;
             }
-
-
             switch (escolha)
             {
                 case 3:
@@ -242,8 +135,9 @@ int main(){
                         valorAproximado = aproximar(valor, escolha_ajuste, n);
                     }
                     else if(escolha2 == 2){
-                        ajustar(escolha_ajuste, x, y, n);
                         valor = multNormal(x, y);
+                        ajustar(escolha_ajuste, x, y, n);
+                        valorAproximado = multNormal(x, y);
                      }
                 break;
 
@@ -253,23 +147,51 @@ int main(){
                         valorAproximado = aproximar(valor, escolha_ajuste, n);
                     }
                     else if(escolha2 == 2){
-                        ajustar(escolha_ajuste, x, y, n);
                         valor = div(x, y);
+                        ajustar(escolha_ajuste, x, y, n);
+                        valorAproximado = div(x, y);
                      }
+
                 break;
             
             default:
                 break;
             }
             //verifica o tipo de ajuste, antes ou depois
-            
         }
 
         
-        cout << valor;
+
+        //mostrando erros
+        double erroAbsoluto = erroAbs(valor, valorAproximado);
+        double erroRelativo = erroRel(erroAbsoluto, valorAproximado);
+
+
+
+        //interface bonitinha hehehehhehehehehehe
+
+        double mantisa = mantissa(56.65445);
+        int exp = expoente(56.65445);
+        
+        printf("======================TESTE=======================\n");
+        
+        printf("valor em notacao: %f x 10^ %d \n", mantisa, exp);
+
+        cout << "Erro absoluto: \n";
+
+        
+        printf("%f x 10^%d", mantissa(erroAbsoluto), expoente(erroAbsoluto));
         p();
-        cout << valorAproximado;
+        cout << "Erro relativo: \n";
+        printf("%f x 10^%d", mantissa(erroRelativo), expoente(erroRelativo));
         p();
+        cout << "Valor exato: \n";
+        printf("%f x 10^%d", mantissa(valor), expoente(valor));
+        p();
+        cout << "Valor aproximado: \n";
+        printf("%f x 10^%d", mantissa(valorAproximado), expoente(valorAproximado));
+        p();
+        printf("=================================================\n");
 
     }while(true);
 }

@@ -19,8 +19,13 @@ using namespace std;
 //=======================================================
 double mantissa(double x){
     //descobrindo grandeza
-    int expoente = floor(log10(x)) + 1;
+    int expoente = floor(log10(abs(x))) + 1;
     return ( x / pow(10, expoente)); 
+}
+
+int expoente(double x){
+    int expoente = floor(log10(abs(x))+1);
+    return expoente;
 }
 //=======================================================
 
@@ -231,6 +236,17 @@ void ajustar(int escolha_ajuste, double &x, double &y, int n){
                 break;
             }
 
-            
+}
+double erroAbs(double valEx, double valApr){
+	//descobrindo o erro absoluto com função que transforma em modulo
+	return abs(valEx - valApr);
+}
 
+double erroRel(double erroAbs, double valApr){
+	//divisão por zero
+	if(valApr == 0){
+		printf("\nErro! Operacao impossivel\n");
+	}
+	//Calcula o erro relativo
+	return erroAbs / abs(valApr);
 }

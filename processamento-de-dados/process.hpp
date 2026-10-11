@@ -14,6 +14,12 @@ double mantissa(double x);
 
 double aproximar(double x, int escolha_ajuste, int n);
 void ajustar(int escolha_ajuste, double &x, double &y, int n);
+
+
+double erroAbs(double x, double y);
+double erroRel(double x, double y);
+
+int expoente(double x);
 //seletor de operacao
 
 //operacoes principais
