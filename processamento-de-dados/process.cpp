@@ -102,7 +102,7 @@ double tru(double x, int n){
                         
                     if(numeroParaString[i] != '9'){
                         
-                        //se chegou no ultimo e ele é o sinal negativo
+                        //se chegou no ultimo e ele Ã© o sinal negativo
                         if(numeroParaString[i] == '-'){
                              numeroParaString.insert(1, 1, '1');
                             //apago o ultimo para ajustar o numero para n digitos
@@ -168,7 +168,7 @@ double tru(double x, int n){
             return stod(numeroParaString);
         }
 
-        //segundo caso - o ultimo é igual a nove
+        //segundo caso - o ultimo Ã© igual a nove
         else if(ultimoNumero == 9){
             int aux = 0;
             for(int i = numeroParaString.size() - 1; i>=0; i--){
@@ -197,7 +197,7 @@ double ard(double x, int n){
     if(x == 0.0)
         return 0.0;
 
-    //pegar em qual escala está o numero
+    //pegar em qual escala estÃ¡ o numero
     double escala = pow(10.0, n-1 - floor(log10(abs(x))));
     double numeroArredondado = x * escala;
     double arredendamento = round(numeroArredondado);
@@ -206,19 +206,15 @@ double ard(double x, int n){
 }
 
 double erroAbs(double valEx, double valApr){
-	//descobrindo o erro absoluto com fun��o que transforma em modulo
-	return fabs(valEx - valApr);;
+	//descobrindo o erro absoluto com função que transforma em modulo
+	return fabs(valEx - valApr);
 }
 
 double erroRel(double valEx, double valApr){
-	//divis�o por zero
+	//divisão por zero
 	if(valApr == 0){
 		printf("\nErro! Operacao impossivel\n");
 	}
 	//Calcula o erro relativo
 	return erroAbs(valEx, valApr)/fabs(valApr);
-}
-
-int main(){
-	return 0;
 }
