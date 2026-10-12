@@ -176,9 +176,6 @@ int main(){
         double erroRelativo = erroRel(erroAbsoluto, valorAproximado);
         
 
-
-        
-
         printf("======================RESULTADO====================\n");
         cout << "Valor exato: \n";
         printf("%f x 10^%d", mantissa(valor), expoente(valor));

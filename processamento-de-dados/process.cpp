@@ -95,7 +95,6 @@ void ajustar(int escolha_ajuste, double &x, double &y, int n){
                 default:
                 break;
             }
-
 }
 //erros
 double erroAbs(double valEx, double valApr){
