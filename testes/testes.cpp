@@ -59,6 +59,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
                         valor = soma(x, y);
                         ajustar(escolha_ajuste, x, y, n);
                         valorAproximado = soma(x, y);
+                        valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                     }
                 break;
 
@@ -75,6 +76,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
                             valor = sub(x, y);
                             ajustar(escolha_ajuste, x, y, n);
                             valorAproximado = sub(x, y);
+                            valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                         }
                 break;
 
@@ -108,6 +110,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
                         valor = multNormal(x, y);
                         ajustar(escolha_ajuste, x, y, n);
                         valorAproximado = multNormal(x, y);
+                        valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                      }
                 break;
 
@@ -122,6 +125,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
                         valor = div(x, y);
                         ajustar(escolha_ajuste, x, y, n);
                         valorAproximado = div(x, y);
+                        valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                      }
 
                 break;

@@ -15,13 +15,17 @@ using namespace std;
 
 double mantissa(double x){
     //descobrindo grandeza
+    if(x == 0.0)
+        return 0;
     int expoente = floor(log10(abs(x))) + 1;
     return ( x / pow(10, expoente)); 
 }
 
 //devolve o expoente para por na notacao
 int expoente(double x){
-    int expoente = floor(log10(abs(x))+1);
+    if(x == 0.0)
+        return 0;
+    int expoente = floor(log10(abs(x))) + 1;
     return expoente;
 }
 //=======================================================
@@ -101,7 +105,7 @@ double erroAbs(double valEx, double valApr){
 double erroRel(double erroAbs, double valApr){
 	//divisão por zero
 	if(valApr == 0){
-		printf("\nErro! Operacao impossivel\n");
+        return NAN;
 	}
 	//Calcula o erro relativo
 	return erroAbs / abs(valApr);

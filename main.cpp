@@ -103,6 +103,8 @@ int main(){
                         valor = soma(x, y);
                         ajustar(escolha_ajuste, x, y, n);
                         valorAproximado = soma(x, y);
+                        valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
+
                     }
                 break;
 
@@ -115,6 +117,7 @@ int main(){
                             valor = sub(x, y);
                             ajustar(escolha_ajuste, x, y, n);
                             valorAproximado = sub(x, y);
+                            valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                         }
                 break;
 
@@ -142,6 +145,7 @@ int main(){
                         valor = multNormal(x, y);
                         ajustar(escolha_ajuste, x, y, n);
                         valorAproximado = multNormal(x, y);
+                        valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                      }
                 break;
 
@@ -154,6 +158,7 @@ int main(){
                         valor = div(x, y);
                         ajustar(escolha_ajuste, x, y, n);
                         valorAproximado = div(x, y);
+                        valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                      }
 
                 break;
@@ -176,15 +181,21 @@ int main(){
 
         printf("======================RESULTADO====================\n");
         cout << "Valor exato: \n";
-        printf("%g x 10^%d", mantissa(valor), expoente(valor));
+        printf("%f x 10^%d", mantissa(valor), expoente(valor));
         p();
         cout << "Valor aproximado: \n";
-        printf("%g x 10^%d", mantissa(valorAproximado), expoente(valorAproximado));
+        printf("%f x 10^%d", mantissa(valorAproximado), expoente(valorAproximado));
         p();
-        printf("Erro absoluto:\n%g x 10^%d", mantissa(erroAbsoluto), expoente(erroAbsoluto));
+        printf("Erro absoluto:\n%f x 10^%d", mantissa(erroAbsoluto), expoente(erroAbsoluto));
         p();
-        printf("Erro relativo:\n%g x 10^%d ou %g%%", mantissa(erroRelativo), expoente(erroRelativo), erroRelativo*100);
-        p();
+
+        if(isnan(erroRelativo)){
+            printf("Erro relativo indefinido\n");
+        }else{
+            printf("Erro relativo:\n%f x 10^%d ou %f%%", mantissa(erroRelativo), expoente(erroRelativo), erroRelativo*100);
+            p();
+        }
+        
         printf("==================================================\n");
 
     }while(true);
