@@ -18,7 +18,7 @@ double mantissa(double x){
     if(x == 0.0)
         return 0;
     int expoente = floor(log10(abs(x))) + 1;
-    return ( x / pow(10, expoente)); 
+    return ( x / pow(10, expoente));
 }
 
 //devolve o expoente para por na notacao

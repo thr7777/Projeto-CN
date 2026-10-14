@@ -141,7 +141,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
         double erroRelativo = erroRel(erroAbsoluto, valorAproximado);
 
 
-        printf("==================TESTES===============\n");
+        printf("==================TESTE SUBTRATIVO===============\n");
         //apresentacao dos testes
         printf("Valor exato: %g x 10^%d", mantissa(valor), expoente(valor));
         p2();
@@ -149,7 +149,7 @@ void testeManual(int escolha, int escolha2, string entradaUm,string entradaDois,
         p2();
         printf("Erro absoluto: %g x 10^%d", mantissa(erroAbsoluto), expoente(erroAbsoluto));
         p2();
-        printf("Erro relativo: %g x 10^%d ou %f%%\n", mantissa(erroRelativo), expoente(erroRelativo), erroRelativo * 100);
+        printf("Erro relativo: %g x 10^%d ou %g%%\n", mantissa(erroRelativo), expoente(erroRelativo), erroRelativo * 100);
         p2();
         printf("=================================================\n");
 }
@@ -215,8 +215,8 @@ void erroDeSomas(double x, double y, int n){
     //apresentacao do resultado
     printf("======================TESTE SOMA ACUMULADA ================\n");
     printf("Valor exato: %gx10^%d\n", mantisaValorExato, expEx);
-    printf("Valor com erro acumulado: %fx10^%d\n", mantisaValorComErros, expEr);
+    printf("Valor com erro acumulado: %gx10^%d\n", mantisaValorComErros, expEr);
     printf("Erro absoluto: %g\n", erroAbsoluto);
-    printf("Erro relativo: %g ou %f%%\n", erroRelativo, erroRelativo *100);
+    printf("Erro relativo: %g ou %g%%\n", erroRelativo, erroRelativo *100);
     printf("=================================================\n");
 }

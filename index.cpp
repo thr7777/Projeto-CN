@@ -5,7 +5,6 @@
 
 //Univasf-ssf
 //projeto feito para a disciplina de Calculo Numerico administrada pelo prof. Jorge Cavalcante
-
 #include"operacoes/operacoes.hpp"
 #include"processamento-de-dados/process.hpp"
 #include"tratamento-de-caracteres/tratamento.hpp"
@@ -13,13 +12,15 @@
 
 #include<iostream>
 #include<string>
-
 #include<iomanip>
-
 using namespace std;
+
+
 void p(){
     printf("\n");
 }
+
+
 #include<cmath>
 
 int main(){
@@ -45,10 +46,9 @@ int main(){
 
     
 
-
     do{
 
-        cout << "Qual operacao%?: \n";
+        cout << "Qual operacao: \n";
         cout << "[1] - Soma \n";
         cout << "[2] - Subtracao \n";
         cout << "[3] - Multiplicacao \n";
@@ -122,7 +122,6 @@ int main(){
                 }
         
             break;
-
             case 3:
                 //multiplicacao
                 if(escolha2 == 1){
@@ -136,7 +135,6 @@ int main(){
                     valorAproximado = aproximar(valorAproximado, escolha_ajuste, n);
                 }
             break;
-
             case 4:
             //divisao
                 if(escolha2 == 1){
@@ -161,7 +159,9 @@ int main(){
         double erroRelativo = erroRel(erroAbsoluto, valorAproximado);
 
         printf("======================RESULTADO====================\n");
-        cout << "Valor exato: \n";
+
+        printf("Valores: x = %g, y = %g \n", x, y);
+        cout << "Valor exato da operacao: \n";
         printf("%g x 10^%d", mantissa(valor), expoente(valor));
         p();
         cout << "Valor aproximado: \n";
